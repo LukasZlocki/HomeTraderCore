@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<GpwCompany>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text">Spolki Gpw</h2>
+        </div>
+    </div>
+</div>
+<br />
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <table class="table table-striped border">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Ticker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Index)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.ISIN)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {           
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Ticker)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Index)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.ISIN)
+        </td>
+    </tr>
+        }
+    </table>
+</div>
+

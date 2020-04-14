@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-HomeTraderCore-7A69E586-51A8-4A11-81B5-CC0C6A88D253</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200413084937_addCompanyModelToDatabase.cs" />
+    <Compile Remove="Data\Migrations\20200413084937_addCompanyModelToDatabase.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
@@ -17,7 +22,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 

@@ -28,11 +28,11 @@ namespace HomeTraderCore
         public void ConfigureServices(IServiceCollection services)
         {
             // dodaje polaczenie z serverem SQL
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<ApplicationDBContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ConnectionStr")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDBContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

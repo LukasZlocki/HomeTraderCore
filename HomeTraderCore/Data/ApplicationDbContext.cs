@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HomeTraderCore.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HomeTraderCore.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDBContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
             : base(options)
         {
         }
+
+        public DbSet<GpwCompany> Company { get; set; }
     }
 }
