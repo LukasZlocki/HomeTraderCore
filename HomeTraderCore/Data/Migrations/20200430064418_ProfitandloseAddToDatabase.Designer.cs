@@ -4,50 +4,22 @@ using HomeTraderCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HomeTraderCore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200430064418_ProfitandloseAddToDatabase")]
+    partial class ProfitandloseAddToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("HomeTraderCore.Models.FinanceCashFlow", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ComapanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PrzeplywyRazem")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrzeplywyZDzialalnosciFinansowej")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrzeplywyZDzialalnosciInvestycyjnej")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrzeplywyZDzialalnosciOperacyjnej")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RaportYear")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CashFlow");
-                });
 
             modelBuilder.Entity("HomeTraderCore.Models.FinanceProfitAndLose", b =>
                 {

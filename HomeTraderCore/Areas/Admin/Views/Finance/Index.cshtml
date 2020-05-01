@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input type="text" placeholder="Search ..." />
+<br />
+<br />
+<div class="row">
+    <div class="col-2">
+        <a asp-action="CashFlow" class="btn btn-secondary btn-sm">Cash Flow</a>
+    </div>
+    <div class="col-2">
+        <a asp-action="Balance" class="btn btn-secondary btn-sm">Cash Balance</a>
+    </div>
+    <div class="col-2">
+        <a asp-action="ProfitLose" class="btn btn-secondary btn-sm">Profit and lose</a>
+    </div>
+</div>

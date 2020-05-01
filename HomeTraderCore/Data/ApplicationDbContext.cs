@@ -15,5 +15,8 @@ namespace HomeTraderCore.Data
         }
 
         public DbSet<GpwCompany> Company { get; set; }
+        public DbSet<FinanceProfitAndLose> ProfitAndLose { get; set; }
+        public DbSet<FinanceCashFlow> CashFlow { get; set; }
+
     }
 }
