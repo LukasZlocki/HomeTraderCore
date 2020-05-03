@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HomeTraderCore.Data;
+using HomeTraderCore.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,16 +19,24 @@ namespace HomeTraderCore.Areas.Admin.Controllers
             _db = db;
         }
 
-        // GET - financial profit and lose
+        
         public async Task<IActionResult> Index()
         {
-            return View(await _db.ProfitAndLose.ToListAsync());
+            return View();
         }
+       
 
         // GET - CashFlow
-        public async Task<IActionResult> CashFlow()
+        [HttpPost]
+        public async Task<IActionResult> CashFlow(string stockName)
         {
-            return View();
+            CashFlowViewModel CashFlowVM = new CashFlowViewModel()
+            {
+                FinanceCashFlow = await _db.CashFlow.Where(n => n.ComapanyName == stockName).OrderByDescending(m => m.RaportYear).ToListAsync(),
+                StockName = stockName,
+                FinanceCashFlowDescription = new Models.FinanceCashFlow()
+            };
+            return View(CashFlowVM);
         }
 
         // GET - Balance

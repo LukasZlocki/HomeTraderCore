@@ -1,12 +1,11 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<input type="text" placeholder="Search ..." />
-<br />
-<br />
 <div class="row">
+    <div class="col-2">
+        <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
+    </div>
     <div class="col-2">
         <a asp-action="CashFlow" class="btn btn-secondary btn-sm">Cash Flow</a>
     </div>
@@ -17,3 +16,28 @@
         <a asp-action="ProfitLose" class="btn btn-secondary btn-sm">Profit and lose</a>
     </div>
 </div>
+<br />
+<div class="input-group-sm mb-3 row">
+    <input type="text" id="stockName" class="btn btn-outline-secondary" placeholder="Search ..." />
+    <div class="input-group-prepend">
+        <button class="btn btn-secondary" type="button">Search</button>
+    </div>
+</div>
+<br />
+<form method="post" asp-area="Admin" asp-controller="Finance" asp-action="CashFlow">
+    <input name="stockName" type="text" class="btn btn-outline-dark" placeholder="nazwa spolki" />
+    <button class="btn btn-secondary" type="submit">dalej</button>
+</form>
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#stockName").autocomplete({
+                source: 'api/companySearch/search'
+            })
+        })
+    </script>
+}
+

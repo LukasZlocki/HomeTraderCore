@@ -1,8 +1,72 @@
-﻿
+﻿@model HomeTraderCore.Models.ViewModels.CashFlowViewModel
 @{
     ViewData["Title"] = "CashFlow";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <div class="row">
+        <div class="col-2">
+            <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
+        </div>
+        <div class="col-2">
+            <a asp-action="CashFlow" class="btn btn-secondary btn-sm">Cash Flow</a>
+        </div>
+        <div class="col-2">
+            <a asp-action="Balance" class="btn btn-secondary btn-sm">Cash Balance</a>
+        </div>
+        <div class="col-2">
+            <a asp-action="ProfitLose" class="btn btn-secondary btn-sm">Profit and lose</a>
+        </div>
+    </div>
+<br />
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <div class="row">
+        <div class="col-6 ">
+            <h4 class="text">Cash Flow </h4>
+            <h6>@Html.DisplayFor(m => m.StockName) </h6>
+        </div>
+    </div>
+</div>
+<br />
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <table class="table table-striped border">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceCashFlowDescription.RaportYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceCashFlowDescription.PrzeplywyZDzialalnosciOperacyjnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceCashFlowDescription.PrzeplywyZDzialalnosciInvestycyjnej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceCashFlowDescription.PrzeplywyZDzialalnosciFinansowej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceCashFlowDescription.PrzeplywyRazem)
+            </th>
+        </tr>
+        @foreach(var item in Model.FinanceCashFlow)
+        {
+    <tr>
+        <td align="center">
+            @Html.DisplayFor(m => item.RaportYear)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.PrzeplywyZDzialalnosciOperacyjnej)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.PrzeplywyZDzialalnosciInvestycyjnej)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.PrzeplywyZDzialalnosciFinansowej)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.PrzeplywyRazem)
+        </td>
+    </tr>
+        }
+    </table>
 
-<h1>CashFlow</h1>
+</div>
 
