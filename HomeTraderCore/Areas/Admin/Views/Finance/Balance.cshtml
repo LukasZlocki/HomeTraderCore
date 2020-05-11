@@ -1,25 +1,88 @@
-﻿@model IEnumerable<FinanceBalance>
+﻿@model HomeTraderCore.Models.ViewModels.FinanceViewModel
 @{
     ViewData["Title"] = "Balance";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
-        <div class="row">
-            <div class="col-6">
-                <h2 class="text">Spolki Gpw</h2>
-            </div>
+<div class="row">
+    <partial name="_FinancialMenuButtons" model="@Model.Company.Id" />
+</div>
+<br />
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <div class="row">
+        <div class="col-6 ">
+            <h4 class="text">Balance </h4>
+            <h6>@Html.DisplayFor(m => m.Company.Name) </h6>
+            <h6>@Html.DisplayFor(m => m.Company.Id) </h6>
         </div>
     </div>
-    <br />
+</div>
+<br />
 <div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
     <table class="table table-striped border">
         <tr>
             <th>
-
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.RaportYear)
             </th>
-
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.AktywaTrwale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.AktywaObrotowe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.AktywaRazem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.KapitalWlasnyAkcjonariuszyJednostkiDominujacej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.UdzialyNiekontrolujace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.ZobowiazaniaDlugoterminowe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.ZobowiazaniaKrotkoterminowe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceBalanceDescription.PasywaRazem)
+            </th>
         </tr>
+        @foreach (var item in Model.FinanceBalance)
+        {
+    <tr>
+        <td align="center">
+            @Html.DisplayFor(m => item.RaportYear)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.AktywaTrwale)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.AktywaObrotowe)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.AktywaRazem)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.KapitalWlasnyAkcjonariuszyJednostkiDominujacej)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.UdzialyNiekontrolujace)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZobowiazaniaDlugoterminowe)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZobowiazaniaKrotkoterminowe)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.PasywaRazem)
+        </td>
+    </tr>
+        }
     </table>
+
 </div>
+
 

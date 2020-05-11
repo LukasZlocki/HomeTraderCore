@@ -24,17 +24,17 @@ namespace HomeTraderCore.Models
         public int AktywaTrwale { get; set; }
         [Display(Name = "AktywaObrotowe")]
         public int AktywaObrotowe { get; set; }
-        [Display(Name = "AktywaRazem")]
+        [Display(Name = "Aktywa Razem")]
         public int AktywaRazem { get; set; }
-        [Display(Name = "KapitalWlasnyAkcjonariuszyJednostkiDominujacej")]
+        [Display(Name = "Kapital Wlasny Akcjonariuszy Jednostki Dominujacej")]
         public int KapitalWlasnyAkcjonariuszyJednostkiDominujacej { get; set; }
-        [Display(Name = "UdzialyNiekontrolujace")]
+        [Display(Name = "Udzialy Niekontrolujace")]
         public int UdzialyNiekontrolujace { get; set; }
-        [Display(Name = "ZobowiazaniaDlugoterminowe")]
+        [Display(Name = "Zobowiazania Dlugoterminowe")]
         public int ZobowiazaniaDlugoterminowe { get; set; }
-        [Display(Name = "ZobowiazaniaKrotkoterminowe")]
+        [Display(Name = "Zobowiazania Krotkoterminowe")]
         public int ZobowiazaniaKrotkoterminowe { get; set; }
-        [Display(Name = "PasywaRazem")]
+        [Display(Name = "Pasywa Razem")]
         public int PasywaRazem { get; set; }
         #endregion
     }

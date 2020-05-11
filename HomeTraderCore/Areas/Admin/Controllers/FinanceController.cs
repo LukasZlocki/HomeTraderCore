@@ -71,6 +71,26 @@ namespace HomeTraderCore.Areas.Admin.Controllers
         }
 
 
+        // GET - Balance
+        public async Task<IActionResult> Balance(int id)
+        {
+            // ToDo : handle with exceptions !
+
+            // loading company data
+            _gpwCompany = await _db.Company.Where(n => n.Id == id).ToListAsync();
+            var _companyData = _gpwCompany.First();
+
+            FinanceViewModel financeVM = new FinanceViewModel()
+            {
+                Company = _companyData,
+                FinanceBalance = await _db.Balance.Where(n => n.CompanyId == _companyData.Id).OrderByDescending(m => m.RaportYear).ToListAsync(),
+                FinanceBalanceDescription = new Models.FinanceBalance()
+            };
+
+            return View(financeVM);
+        }
+
+
 
 
     }
