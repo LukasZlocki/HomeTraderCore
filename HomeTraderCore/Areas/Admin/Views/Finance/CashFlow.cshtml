@@ -1,28 +1,18 @@
-﻿@model HomeTraderCore.Models.ViewModels.CashFlowViewModel
+﻿@model HomeTraderCore.Models.ViewModels.FinanceViewModel
 @{
     ViewData["Title"] = "CashFlow";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
     <div class="row">
-        <div class="col-2">
-            <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
-        </div>
-        <div class="col-2">
-            <a asp-action="CashFlow" class="btn btn-secondary btn-sm">Cash Flow</a>
-        </div>
-        <div class="col-2">
-            <a asp-action="Balance" class="btn btn-secondary btn-sm">Cash Balance</a>
-        </div>
-        <div class="col-2">
-            <a asp-action="ProfitLose" class="btn btn-secondary btn-sm">Profit and lose</a>
-        </div>
+        <partial name="_FinancialMenuButtons" model="@Model.Company.Id" />
     </div>
 <br />
 <div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
     <div class="row">
         <div class="col-6 ">
             <h4 class="text">Cash Flow </h4>
-            <h6>@Html.DisplayFor(m => m.StockName) </h6>
+            <h6>@Html.DisplayFor(m => m.Company.Name) </h6>
+            <h6>@Html.DisplayFor(m => m.Company.Id) </h6>
         </div>
     </div>
 </div>

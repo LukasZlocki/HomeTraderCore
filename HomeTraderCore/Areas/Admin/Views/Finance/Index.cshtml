@@ -2,32 +2,17 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
-    <div class="col-2">
-        <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
+    <div class="row">
+        <div class="col-2">
+            <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
+        </div>
     </div>
-    <div class="col-2">
-        <a asp-action="CashFlow" class="btn btn-secondary btn-sm">Cash Flow</a>
-    </div>
-    <div class="col-2">
-        <a asp-action="Balance" class="btn btn-secondary btn-sm">Cash Balance</a>
-    </div>
-    <div class="col-2">
-        <a asp-action="ProfitLose" class="btn btn-secondary btn-sm">Profit and lose</a>
-    </div>
-</div>
-<br />
-<div class="input-group-sm mb-3 row">
-    <input type="text" id="stockName" class="btn btn-outline-secondary" placeholder="Search ..." />
-    <div class="input-group-prepend">
-        <button class="btn btn-secondary" type="button">Search</button>
-    </div>
-</div>
 <br />
 <form method="post" asp-area="Admin" asp-controller="Finance" asp-action="CashFlow">
     <input name="stockName" type="text" class="btn btn-outline-dark" placeholder="nazwa spolki" />
     <button class="btn btn-secondary" type="submit">dalej</button>
 </form>
+
 
 @section Scripts{
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>

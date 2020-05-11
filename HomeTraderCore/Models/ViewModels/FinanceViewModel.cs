@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace HomeTraderCore.Models.ViewModels
 {
-    public class CashFlowViewModel
-    {
+    public class FinanceViewModel
+    {     
         public IEnumerable<FinanceCashFlow> FinanceCashFlow { get; set; }
-        public IEnumerable<FinanceCashFlow> FinanceProfitAndLose { get; set; }
+        public IEnumerable<FinanceProfitAndLose> FinanceProfitAndLose { get; set; }
 
-        public string StockName { get; set; }
+        public GpwCompany Company { get; set; }
+
         public FinanceCashFlow FinanceCashFlowDescription { get; set; }
         public FinanceProfitAndLose FinanceProfitAndLoseDescription { get; set; }
     }

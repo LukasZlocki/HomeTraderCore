@@ -1,0 +1,17 @@
+﻿@model int
+
+<div class="col-2">
+    <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
+</div>
+<div class="col-2">
+    <a asp-action="CashFlow" class="btn btn-secondary btn-sm">a1</a>
+</div>
+<div class="col-2">
+    <a asp-action="Balance"  class="btn btn-secondary btn-sm">a2</a>
+</div>
+<div class="col-2">
+    <a asp-area="Admin" asp-controller="Finance" asp-action="ProfitAndLose" asp-route-id="@Model" class="btn btn-secondary btn-sm">Profit and lose </a>
+</div>
+
+
+

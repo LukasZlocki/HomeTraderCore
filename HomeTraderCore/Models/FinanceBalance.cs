@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,7 +11,9 @@ namespace HomeTraderCore.Models
     {
         [Key]
         [Required]
-        public int Id { get; set; }
+        public int Id { get; set; }      
+        [ForeignKey("CompanyId")]
+        public int CompanyId { get; set; }
         [Display(Name = "Nazwa")]
         public string ComapanyName { get; set; }
         [Display(Name = "rok")]

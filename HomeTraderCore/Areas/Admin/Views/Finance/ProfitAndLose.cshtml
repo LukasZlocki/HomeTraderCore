@@ -1,0 +1,80 @@
+﻿@model HomeTraderCore.Models.ViewModels.FinanceViewModel
+@{
+    ViewData["Title"] = "ProfitAndLose";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <partial name="_FinancialMenuButtons" model="@Model.Company.Id"/>
+</div>
+<br />
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <div class="row">
+        <div class="col-6 ">
+            <h4 class="text">Profit and lose </h4>
+            <h6>@Html.DisplayFor(m => m.Company.Name)</h6>
+            <h6>@Html.DisplayFor(m => m.Company.Id)</h6>
+        </div>
+    </div>
+</div>
+<br />
+<div class="border-bottom border-white shadow rounded-lg" style="background-color: #ededed">
+    <table class="table table-striped border">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.RaportYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.PrzychodyZeSprzedazy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.ZyskZeSprzedazy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.ZyskOperacyjny)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.ZyskZDzialalnosciGospodarczej)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.ZyskPrzedOpodatkowaniem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.ZyskNetto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.FinanceProfitAndLoseDescription.EBITDA)
+            </th>
+        </tr>
+        @foreach (var item in Model.FinanceProfitAndLose)
+        {
+    <tr>
+        <td align="center">
+            @Html.DisplayFor(m => item.RaportYear)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.PrzychodyZeSprzedazy)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZyskZeSprzedazy)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZyskOperacyjny)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZyskZDzialalnosciGospodarczej)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZyskPrzedOpodatkowaniem)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.ZyskNetto)
+        </td>
+        <td align="center">
+            @Html.DisplayFor(m => item.EBITDA)
+        </td>
+    </tr>
+        }
+    </table>
+
+</div>
