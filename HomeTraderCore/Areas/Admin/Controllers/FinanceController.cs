@@ -29,9 +29,10 @@ namespace HomeTraderCore.Areas.Admin.Controllers
         }
 
 
-        // GET - CashFlow
+        // GET - CashFlow (string)
+        [HttpPost, ActionName("CashFlowBase")]
         [HttpPost]
-        public async Task<IActionResult> CashFlow(string stockName)
+        public async Task<IActionResult> CashFlowBase(string stockName)
         {
             // ToDo : handle with exceptions !
 
@@ -43,9 +44,26 @@ namespace HomeTraderCore.Areas.Admin.Controllers
             {
                 Company = _companyData,
                 FinanceCashFlow = await _db.CashFlow.Where(n => n.ComapanyName == stockName).OrderByDescending(m => m.RaportYear).ToListAsync(),
-                //  FinanceProfitAndLose = await _db.ProfitAndLose.Where(n => n.ComapanyName == stockName).OrderByDescending(m => m.RaportYear).ToListAsync(),
                 FinanceCashFlowDescription = new Models.FinanceCashFlow(),
-                //  FinanceProfitAndLoseDescription = new Models.FinanceProfitAndLose()
+            };
+            return View("CashFlow", financeVM);
+        }
+
+        // GET - CashFlow (int)
+        //[HttpPost]
+        public async Task<IActionResult> CashFlow(int id)
+        {
+            // ToDo : handle with exceptions !
+
+            // loading company data
+            _gpwCompany = await _db.Company.Where(n => n.Id == id).ToListAsync();
+            var _companyData = _gpwCompany.First();
+
+            FinanceViewModel financeVM = new FinanceViewModel()
+            {
+                Company = _companyData,
+                FinanceCashFlow = await _db.CashFlow.Where(n => n.CompanyId == id).OrderByDescending(m => m.RaportYear).ToListAsync(),           
+                FinanceCashFlowDescription = new Models.FinanceCashFlow(),  
             };
             return View(financeVM);
         }

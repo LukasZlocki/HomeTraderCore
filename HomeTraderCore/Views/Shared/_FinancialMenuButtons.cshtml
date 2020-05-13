@@ -4,7 +4,7 @@
     <a asp-action="Index" class="btn btn-secondary btn-sm">Szukaj</a>
 </div>
 <div class="col-2">
-    <a asp-action="CashFlow" class="btn btn-secondary btn-sm">a1</a>
+    <a asp-area="Admin" asp-controller="Finance" asp-action="CashFlow" asp-route-id="@Model" class="btn btn-secondary btn-sm">Cash Flow</a>
 </div>
 <div class="col-2">
     <a asp-area="Admin" asp-controller="Finance" asp-action="Balance" asp-route-id="@Model" class="btn btn-secondary btn-sm">Balance</a>

@@ -23,5 +23,22 @@ namespace HomeTraderCore.Areas.Admin.Controllers
         {
             return View(await _db.Company.ToListAsync());
         }
+
+
+        // GET - Company by Wig20
+        public async Task<IActionResult> IndexSort(int id)
+        {
+            string _sort="";
+
+            if (id == 1 ) { _sort = "Wig20"; }
+            if (id == 2 ) { _sort = "mWig40"; }
+            if (id == 3 ) { _sort = "sWig80"; }
+
+            var _result = await _db.Company.Where(n => n.Index == _sort).ToListAsync();
+
+            return View("Index",_result);
+        }
+
+
     }
 }

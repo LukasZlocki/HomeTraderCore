@@ -10,6 +10,7 @@ namespace HomeTraderCore.Models.ViewModels
 
         public GpwCompany Company { get; set; }
 
+        // for description purpose
         public FinanceCashFlow FinanceCashFlowDescription { get; set; }
         public FinanceProfitAndLose FinanceProfitAndLoseDescription { get; set; }
         public FinanceBalance FinanceBalanceDescription { get; set; }
